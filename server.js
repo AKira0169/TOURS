@@ -25,19 +25,18 @@ mongoose
   })
   .then(() => {
     console.log('DB Connection successfully');
-    const port = process.env.PORT || 8000;
-    const server = app.listen(port, () => {
-      console.log(`App running on port ${port}`);
-    });
-
-    process.on('unhandledRejection', (err) => {
-      console.log(err.name, err.message);
-      console.log('unHandler the Rejection');
-      server.close(() => {
-        process.exit(1);
-      });
-    });
-  })
-  .catch((error) => {
-    console.error('DB Connection error:', error);
   });
+
+const port = process.env.PORT || 8000;
+const server = app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`App running on port ${port}`);
+});
+
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  console.log('unHandler the Rejection');
+  server.close(() => {
+    process.exit(1);
+  });
+});
