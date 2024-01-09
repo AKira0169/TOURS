@@ -4,7 +4,6 @@ const compression = require('compression');
 
 const cookieParser = require('cookie-parser');
 
-const rateLimit = require('express-rate-Limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
@@ -44,12 +43,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(compression());
 //limit requests from same api
 
-const limiter = rateLimit({
-  max: 100,
-  windowMs: 60 * 60 * 1000,
-  message: 'too many requestes from this api please try again in an hour',
-});
-app.use('/api', limiter);
 // body parser readying data from body into req.body
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
