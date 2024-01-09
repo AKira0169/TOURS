@@ -27,10 +27,8 @@ mongoose
     console.log('DB Connection successfully');
   });
 
-const port = process.env.PORT || 8000;
-const server = app.listen(port, () => {
+const server = app.listen(3000, () => {
   // eslint-disable-next-line no-console
-  console.log(`App running on port ${port}`);
 });
 
 process.on('unhandledRejection', (err) => {
