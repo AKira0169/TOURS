@@ -8,7 +8,7 @@ const rateLimit = require('express-rate-Limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
-const hpp = require('hpp');
+
 const AppError = require('./uti/appError');
 const globalErrorHandler = require('./contro/errorContro');
 
@@ -59,7 +59,7 @@ app.use(mongoSanitize());
 // data sanitization against XSS
 app.use(xss());
 // prevent prameter pollution
-app.use(hpp({ whitelist: ['duration'] }));
+
 //serving stitic files
 
 // test middleware
