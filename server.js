@@ -26,7 +26,7 @@ mongoose
   .then(() => {
     // eslint-disable-next-line no-console
     console.log('DB connection successful!');
-    const server = app.listen(3000, () => {
+    app.listen(3000, () => {
       // eslint-disable-next-line no-console
     });
   });
