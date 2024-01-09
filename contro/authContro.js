@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
-const rateLimit = require('express-rate-Limit');
+
 const { error } = require('console');
 const User = require('../modules/useModule');
 const catchAsynce = require('../uti/catchAsynce');
@@ -336,9 +336,4 @@ exports.accep = catchAsynce(async (req, res, next) => {
     status: 'success',
     message: 'your email has benn successfuly verfaed',
   });
-});
-exports.limitlogin = rateLimit({
-  max: 5,
-  windowMs: 5 * 60 * 1000,
-  message: 'tryed wrong five times',
 });

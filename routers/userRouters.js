@@ -7,7 +7,7 @@ const reveiwcontro = require('../contro/reveiwcontro');
 const routes = express.Router();
 
 routes.post('/signup', authContro.signup, authContro.verc);
-routes.post('/login', authContro.limitlogin, authContro.login);
+routes.post('/login', authContro.login);
 routes.post('/checkOtp', authContro.checkOtp);
 routes.get('/logout', authContro.logout);
 routes.post('/forgotPassword', authContro.forgotPassword);
