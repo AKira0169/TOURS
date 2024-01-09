@@ -26,11 +26,10 @@ mongoose
   .then(() => {
     // eslint-disable-next-line no-console
     console.log('DB connection successful!');
+    const server = app.listen(3000, () => {
+      // eslint-disable-next-line no-console
+    });
   });
-
-const server = app.listen(3000, () => {
-  // eslint-disable-next-line no-console
-});
 
 process.on('unhandledRejection', (err) => {
   server.close(() => {
