@@ -24,7 +24,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log('DB Connection successfully');
+    // eslint-disable-next-line no-console
+    console.log('DB connection successful!');
   });
 
 const server = app.listen(3000, () => {
@@ -32,8 +33,6 @@ const server = app.listen(3000, () => {
 });
 
 process.on('unhandledRejection', (err) => {
-  console.log(err.name, err.message);
-  console.log('unHandler the Rejection');
   server.close(() => {
     process.exit(1);
   });
