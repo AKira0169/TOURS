@@ -8,7 +8,7 @@ export const disableAconts = async (name) => {
   try {
     const res = await axios({
       method: 'delete',
-      url: 'http://127.0.0.1:8000/api/v1/users/deleteMeee',
+      url: '/api/v1/users/deleteMeee',
       data: { name },
     });
 
@@ -28,7 +28,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: { email, password },
     });
     if (res.data.status === 'Pedding') {
@@ -51,7 +51,7 @@ export const checkOtppp = async (otp) => {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:8000/api/v1/users/checkOtp',
+      url: '/api/v1/users/checkOtp',
       data: { otp },
     });
 
@@ -69,10 +69,10 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:8000/api/v1/users/logout',
+      url: '/api/v1/users/logout',
     });
     if (res.data.status === 'success') {
-      if (window.location.href === 'http://127.0.0.1:8000/me') {
+      if (window.location.href === '/me') {
         location.assign('/');
       } else {
         location.reload(true);
@@ -87,7 +87,7 @@ export const signup = async (name, email, password, passwordConfirm) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/users/signup',
+      url: '/api/v1/users/signup',
       data: { name, email, password, passwordConfirm },
     });
     if (res.data.status === 'success') {
@@ -105,7 +105,7 @@ export const deletee = async (password) => {
   try {
     const res = await axios({
       method: 'delete',
-      url: 'http://127.0.0.1:8000/api/v1/users/deleteMee',
+      url: '/api/v1/users/deleteMee',
       data: { password },
     });
     console.log(res);

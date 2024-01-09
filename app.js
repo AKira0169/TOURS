@@ -9,6 +9,8 @@ const hpp = require('hpp');
 const AppError = require('./uti/appError');
 const globalErrorHandler = require('./contro/errorContro');
 
+const compression = require('compression');
+
 const cookieParser = require('cookie-parser');
 
 const app = express();
@@ -36,10 +38,11 @@ helmet.contentSecurityPolicy({
   },
 });
 //develpoment logging
-console.log(process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === 'development') {
   // app.use(morgan('dev'));
 }
+app.use(compression());
 //limit requests from same api
 
 const limiter = rateLimit({
