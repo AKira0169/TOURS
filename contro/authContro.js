@@ -2,11 +2,9 @@ const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 
-const { error } = require('console');
 const User = require('../modules/useModule');
 const catchAsynce = require('../uti/catchAsynce');
 const AppError = require('../uti/appError');
-const nodemailer = require('nodemailer');
 const Email = require('../uti/email');
 
 const signToken = (id) =>
